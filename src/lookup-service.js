@@ -1,7 +1,7 @@
 export class LookupService {
-    async findPokemon(type) {
+    async findPokemon(name) {
         try{
-            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/type=${type}`);
+            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/name=${name}`);
             let jsonifiedResponse = await response.json();
             return jsonifiedResponse;
         } catch(error) {

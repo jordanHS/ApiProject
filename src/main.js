@@ -5,24 +5,13 @@ import './styles.css';
 import { LookupService } from './lookup-service';
 
 $(document).ready(function() {
-    $('#doctorSearch').click(function() {
-        let name = $("#name").val();
+    $('#findPokemon').click(function() {
+        const name = $("#name").val();
+            $('#name').val("");
 
-        function pokemonLookup() {
-            return new Promise(function(resolve, reject) {
-                let request = new XMLHttpRequest();
-                let url = `https://pokeapi.co/api/v2/pokemon/name=${name}`
-
-                request.onload = function() {
-                    if (this.status === 200) {
-                        resolve(request.response);
-                    } else {
-                        reject(Error(request.statusText));
-                    }
-                }
-                request.open("GET", url, true);
-                request.send();
-            });
-        }
+        (async () => {
+            let lookupService = new LookupService();
+            const response = await lookupService.findPokemon(name);
+        })
     })
 });
