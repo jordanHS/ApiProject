@@ -5,7 +5,7 @@ export class FindPokemon {
         let jsonifiedResponse = await response.json();
         return jsonifiedResponse;
         } catch(error) {
-            return response.status(400).send(error);
+            console.error("There was an error handling your request:" + error.message);   
             }
         }
     }
