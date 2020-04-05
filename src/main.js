@@ -1,19 +1,20 @@
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min';
 import $ from 'jquery';
 import './styles.css';
-import { FindPokemon } from './lookup-service';
+import { PokemonSearch } from './lookup-service';
 
 $(document).ready(function() {
     $('#findPokemon').click(function() {
         const type = $("#type").val();
             $('#type').val("");
 
-        const search = new FindPokemon()
+        const findPokemon = new PokemonSearch()
+        
 
 
 
-        search.FindPokemon(type)
+        findPokemon.PokemonSearch(type)
             .then((response) => {
                 $("#showPokemon").empty();
                 const pokemonList = response;
