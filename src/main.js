@@ -12,7 +12,7 @@ $(document).ready(function() {
         const search = new PokemonSearch();
         
     search.findPokemon(type).then((response) => {
-      $("#showPokemon").empty();
+      $(".showPokemon").empty();
       const pokemonList = response.pokemon;
 
       for (let poke of pokemonList) {
