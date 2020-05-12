@@ -18,9 +18,10 @@ $(document).ready(function() {
       for (let poke of pokemonList) {
         if  (pokemonList.length > 0) {
             $(".showPokemon").append(`${poke.pokemon.name} `);
-        }  else if(pokemonList.length == 0) {
-            $('.showPokemon').text(`No Pokemon of that type were found.`);
+        }  else  {
+            $('.showPokemon').text(`Please enter a valid pokemon type.`);
           }
+          console.log(pokemonList.length)
         }
     });
   });
